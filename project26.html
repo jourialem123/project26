@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project26</title>
+</head>
+<body>
+    <h2>Movies</h2>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <script>
+        //parent class
+        class movie{
+            constructor(name,release){
+                this.name=name;
+                this.release=release;
+            }
+
+        
+        show(){
+            return "Movie " + this.name + " was released on " +this.release;
+        }
+        //static method in parent class
+     static hi(a) {
+                return "The best movie is " + a.name;
+            }
+    }
+
+//child class
+        class genre extends movie{
+            constructor(name,release,genre){
+               super(name,release)
+                this.genre=genre;
+            }
+        
+        present(){
+            return this.show()+" and its genre is "+this.genre;
+        }
+   
+        //static method in child class
+   
+            static thanks() {
+                return "I hope you enjoy watching " + movie1.name + " and " + movie2.name;
+            }
+}
+
+        movie1= new genre("Titanic",1997,"epic romantic disaster film");
+        movie2=new genre("Jumanji",1995,"dark fantasy adventure film");
+        document.getElementById("p1").innerHTML=movie1.present();
+        document.getElementById("p2").innerHTML=movie2.present();
+        document.getElementById("p3").innerHTML=movie.hi(movie2);
+        document.getElementById("p4").innerHTML=genre.thanks();
+    </script>
+</body>
+</html>
